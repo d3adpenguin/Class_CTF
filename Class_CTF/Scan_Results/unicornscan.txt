@@ -1,0 +1,3 @@
+TCP open	             ssh[   22]		from 10.0.2.8  ttl 64 
+TCP open	            http[   80]		from 10.0.2.8  ttl 64 
+TCP open	          sunrpc[  111]		from 10.0.2.8  ttl 64 

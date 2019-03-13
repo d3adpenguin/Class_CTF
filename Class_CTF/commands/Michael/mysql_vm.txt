@@ -1,0 +1,6 @@
+
+#connect to sql database as Micahel
+michael@Raven:~$ mysql -u root -p
+#itll promt you for password
+#pass: 
+R@v3nSecurity

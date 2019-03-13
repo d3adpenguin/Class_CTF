@@ -1,0 +1,3 @@
+#adter you ssh michael@<IP>
+michael@Raven:~$ cat /var/www/html/wordpress/wp-config.php
+
